@@ -1,0 +1,52 @@
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AddressPage from "../pages/AddressPage/AddressPage";
+import Cart from "../pages/Cart/Cart";
+import EditProfile from "../pages/EditProfile/EditProfile";
+import Home from "../pages/Home/Home";
+import Login from "../pages/Login/Login";
+import Profile from "../pages/Profile/Profile";
+import Restaurant from "../pages/Restaurant/Restaurant";
+import Signup from "../pages/Signup/Signup";
+
+
+const Router = () => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Home/>
+        </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/signup">
+          <Signup/>
+        </Route>
+        <Route exact path="/signup/address">
+          <AddressPage/>
+        </Route>
+        <Route exact path="/restaurant/:restaurantId">
+          <Restaurant/>
+        </Route>
+        <Route exact path="/cart">
+          <Cart/>
+        </Route>
+        <Route exact path="/profile">
+          <Profile/>
+        </Route>
+        <Route exact path="/profile/edit">
+          <EditProfile/>
+        </Route>
+        <Route exact path="/profile/edit/address">
+          <AddressPage/>
+        </Route>
+        {/* <Route>
+          <ErrorPage />
+        </Route> */}
+      </Switch>
+    </BrowserRouter>
+  );
+};
+
+export default Router;
