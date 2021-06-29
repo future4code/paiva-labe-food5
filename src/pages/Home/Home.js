@@ -1,12 +1,12 @@
 import React from 'react'
 import { URL } from '../../parameters/url'
 import useRequestData from '../../hooks/useRequestData'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 
 const Home = () => {
     const restaurant = useRequestData([], `${URL}/restaurants`)
-    
-    console.log(restaurant.restaurants)
+    useProtectedPage()
 
     return(
         <div>
