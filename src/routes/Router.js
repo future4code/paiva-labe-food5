@@ -8,13 +8,17 @@ import Login from "../pages/Login/Login";
 import Profile from "../pages/Profile/Profile";
 import Restaurant from "../pages/Restaurant/Restaurant";
 import Signup from "../pages/Signup/Signup";
+import Welcome from "../pages/Welcome/Welcome";
 
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
+      <Route exact path="/">
+          <Welcome/>
+        </Route>
+        <Route exact path="/home">
           <Home/>
         </Route>
         <Route exact path="/login">
