@@ -1,11 +1,13 @@
 import React from 'react'
+import Header from '../../components/Header/Header'
+
 
 
 const Cart = () => {
 
     return(
         <div>
-            <h1> Carrinho</h1>
+            <Header name={"Carrinho"} />
         </div>
     )
 }

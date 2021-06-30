@@ -10,40 +10,39 @@ import Restaurant from "../pages/Restaurant/Restaurant";
 import Signup from "../pages/Signup/Signup";
 import Welcome from "../pages/Welcome/Welcome";
 
-
 const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-      <Route exact path="/">
-          <Welcome/>
+        <Route exact path="/">
+          <Welcome />
         </Route>
         <Route exact path="/home">
-          <Home/>
+          <Home />
         </Route>
         <Route exact path="/login">
           <Login />
         </Route>
         <Route exact path="/signup">
-          <Signup/>
+          <Signup />
         </Route>
         <Route exact path="/signup/address">
-          <AddressPage/>
+          <AddressPage />
         </Route>
         <Route exact path="/restaurant/:restaurantId">
-          <Restaurant/>
+          <Restaurant />
         </Route>
         <Route exact path="/cart">
-          <Cart/>
+          <Cart />
         </Route>
         <Route exact path="/profile">
-          <Profile/>
+          <Profile />
         </Route>
         <Route exact path="/profile/edit">
-          <EditProfile/>
+          <EditProfile />
         </Route>
         <Route exact path="/profile/edit/address">
-          <AddressPage/>
+          <AddressPage />
         </Route>
         {/* <Route>
           <ErrorPage />
