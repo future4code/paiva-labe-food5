@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
 display: flex;
 justify-content: space-between;
 width: 320px;
@@ -13,4 +13,8 @@ bottom: 0;
 padding-top:8px;
 position: fixed;
 margin: 1px auto;
-`
+background-color: white;
+margin: 0 auto;
+left: 50%;
+transform: translateX(-50%);
+`;
