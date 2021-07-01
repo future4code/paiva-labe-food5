@@ -16,14 +16,18 @@ border-radius: 8px;
 border: solid 1px #b8b8b8;
 `
 
-export const Imagem = styled.img`
-  width: 96px;
+export const CardImagem = styled.div`
+  width: 170px;
   height: 112px;
-  margin: 0 16px 0 0;
+  /* margin: 0 16px 0 0; */
   object-fit: contain;
+  border-radius: 8px 0  0  8px;
+  background-size:cover;
+  
+background-position: center;
 `
 
-export const Div = styled.div`
+export const ContainerDados = styled.div`
   position: relative;
 `
 
@@ -89,7 +93,7 @@ text-align: center;
 justify-items:center;
 position: absolute;
 top: -1px;
-right: 15px;
+right: -1px;
 width: 30px;
 height: 35px;
 margin: 0;
@@ -112,16 +116,19 @@ export const TextoQtda = styled.p `
   color: #5cb646;
 `
 
-export const Button = styled.div `
+export const Button = styled.button `
 position: absolute;
 bottom: -1px;
-right: 15px;
-width: 50px;
-height: 19px;
+right: -1px;
+width: 100px;
+height: 30px;
 margin: 7px 0 0 8px;
 padding: 5px 24px 8px 20px;
 border-radius: 8px 0;
 border: solid 1px #5cb646;
 margin:auto;
 color:#5cb646;
+background-color: transparent;
+cursor:pointer;
 `
+

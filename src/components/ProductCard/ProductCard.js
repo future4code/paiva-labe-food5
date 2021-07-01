@@ -1,29 +1,27 @@
 import React from 'react';
-import Burger from '../../assets/img/95588246-1173-4513-89DA-A6107AFECF60.png';
-import { ContainerCard, Card, Imagem, TituloProduto, DescricaoProduto, ContainerPreco, TextoPreco, ContainerQuantidade, TextoQtda, Button , Div} from './styled'
+import { ContainerCard, Card, CardImagem, TituloProduto, DescricaoProduto, ContainerPreco, TextoPreco, ContainerQuantidade, TextoQtda, Button , ContainerDados} from './styled'
 
-const ProductCard = () => {
+const ProductCard = (props) => {
 
     return (
         <ContainerCard>
-            <Card>
-                <Imagem src={Burger} />
-                <Div>
+            <Card >
+                <CardImagem  style={{backgroundImage: 'url(' + props.opcoes.photoUrl + ')'}} />
+                <ContainerDados>
                     <TituloProduto>
-                        <p>Bullguer</p>
+                        <p>{props.opcoes.name}</p>
                     </TituloProduto>
                     <DescricaoProduto>
-                        <p>Pão, carne, queijo, cebola roxa, tomate, alface e molho.</p>
+                        <p>{props.opcoes.description}</p>
                     </DescricaoProduto>
                     <ContainerPreco>
-                        <TextoPreco>R$23,00</TextoPreco>
+                        <TextoPreco>R${props.opcoes.price}</TextoPreco>
                     </ContainerPreco>
                     <ContainerQuantidade>
                        <TextoQtda>2</TextoQtda> 
                     </ContainerQuantidade>
                     <Button>adicionar</Button>
-                </Div>
-
+                </ContainerDados>
             </Card>
         </ContainerCard>
     )
