@@ -12,11 +12,12 @@ const useRequestData = (initialData, url) => {
     axios.get(url, { headers: { Auth: user.token } })
       .then((response) => {
         setData(response.data);
+        console.log('entrou')
       })
       .catch(() => {
         alert("Ocorreu um erro, tente novamente");
       });
-  }, [ url, user ]);
+  }, [ url]);
 
   return data;
 };
