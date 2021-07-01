@@ -23,7 +23,6 @@ const ProductCard = () => {
                     </ContainerQuantidade>
                     <Button>adicionar</Button>
                 </Div>
-
             </Card>
         </ContainerCard>
     )

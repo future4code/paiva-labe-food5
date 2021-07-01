@@ -7,10 +7,7 @@ const App = () => {
   return(
   <GlobalState>
     <Router/>
-    <ProductCard />
-    <ProductCard />
-    <ProductCard />
-    <ProductCard />
+    
   </GlobalState>)
 }
 
