@@ -1,20 +1,18 @@
-import React, { useContext, useLayoutEffect } from 'react';
+import React from 'react';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import GlobalStateContext from "../../global/GlobalStateContext";
 import { useParams } from "react-router-dom";
+import useRequestData from '../../hooks/useRequestData';
+import { URL } from '../../parameters/url';
 
 
 
 const Restaurant = () => {
     const {restaurantId} = useParams()
-    const { detail, setRestaurantId } = useContext(GlobalStateContext);
-    
+  
+    const detailRestaurant = useRequestData({}, `${URL}/restaurants/${restaurantId}`)
 
-    useLayoutEffect(() => {
-      setRestaurantId(restaurantId)
-    }, [])
 
-    const listaDetalhe= detail.restaurant && detail.restaurant.products.map((opcoes) => {
+    const listaDetalhe= detailRestaurant.restaurant && detailRestaurant.restaurant.products.map((opcoes) => {
         return(
             <ProductCard opcoes={opcoes}/>
         )
