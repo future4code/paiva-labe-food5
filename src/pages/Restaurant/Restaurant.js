@@ -6,6 +6,7 @@ import { URL } from '../../parameters/url';
 import { ContainerRestaurant, CardImagem, TituloProduto, DescricaoProduto, ContainerTimeFrete, ContainerDados } from './styled'
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import useProtectedPage from "../../hooks/useProtectedPage";
+import Header from '../../components/Header/Header'
 
 
 const Restaurant = () => {
@@ -20,7 +21,8 @@ const Restaurant = () => {
     )
   })
   return (
-    <ContainerRestaurant>
+    <div>
+      <Header name={"Restaurante"}/>
       {detailRestaurant.restaurant ?
         <ContainerRestaurant>
           <CardImagem style={{ backgroundImage: 'url(' + detailRestaurant.restaurant.logoUrl + ')' }} alt={detailRestaurant.restaurant.name} />
@@ -42,7 +44,7 @@ const Restaurant = () => {
       {listaDetalhe}
       {console.log('lista', detailRestaurant.restaurant)}
 
-    </ContainerRestaurant>
+    </div>
   )
 }
 
