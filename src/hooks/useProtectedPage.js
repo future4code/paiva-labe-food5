@@ -6,10 +6,11 @@ const useProtectedPage = () => {
   const history = useHistory();
 
   useLayoutEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = localStorage.getItem("user");
+    const address = localStorage.getItem("userAddress");
     if (!user) {
       goToLogin(history);
-    } else if (!user.user.hasAddress) {
+    } else if (!address) {
       goToSignUpAddress(history);
     }
   }, [history]);

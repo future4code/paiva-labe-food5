@@ -1,16 +1,32 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { URL } from "../../parameters/url";
 import { useForm } from "../../hooks/useForm";
 import { goToSignUp } from "../../routes/coordinator";
-
-
+import TextField from '@material-ui/core/TextField';
+import { IconButton, InputAdornment, FormControl } from "@material-ui/core";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
+import InputLabel from '@material-ui/core/InputLabel';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import { Button } from "@material-ui/core";
+import { AppLogin, FormDisplay } from "./styled";
+import SubHeader from "../../components/SubHeader/SubHeader";
 const initialForm = { email: "", password: "" };
 
 export function Login() {
   const [form, handleValue, resetForm] = useForm(initialForm);
+  const [showPassword, setShowPassword] = React.useState(false)
   const history = useHistory();
+
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
   const login = (e) => {
     e.preventDefault();
@@ -21,7 +37,8 @@ export function Login() {
     axios
       .post(`${URL}/login`, body)
       .then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("userAddress", res.data.user.hasAddress);
+        localStorage.setItem("user", res.data.token);
         if (res.data.user.hasAddress) {
           history.push("/");
         } else {
@@ -34,37 +51,60 @@ export function Login() {
   };
 
   return (
-    <div>
-      <h1> pagina de login</h1>
+    <AppLogin>
       <div>
-        <form onSubmit={login}>
-          <label>Email</label>
-          <input
+        <SubHeader/>
+        <p>Entrar</p>
+        <FormDisplay autoComplete="off" onSubmit={login}>
+          <TextField
+            variant="outlined"
+            id="outlined-basic"
+            label="Email"
             name="email"
             type="email"
             onChange={handleValue}
             value={form.email}
-            required={true}
             placeholder="nome@email.com"
           />
-          <label>Senha</label>
-          <input
-            name="password"
-            onChange={handleValue}
-            value={form.password}
-            required={true}
-            type="password"
-          />
-          <button>login</button>
+          <FormControl
+            variant="outlined"
+            style={{ margin: "8px 0" }}
+          >
+
+            <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
+            <OutlinedInput
+
+              label="Senha"
+              value={form.password}
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              placeholder="Insira a sua Senha"
+              onChange={handleValue}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              labelWidth={70}
+            />
+          </FormControl>
+          <Button type="submit" color="primary" variant="contained" >Entrar</Button>
           <p>
             Não tenho conta{" "}
             <a href="/signup" onClick={() => goToSignUp}>
               cadastre-se aqui
             </a>
           </p>
-        </form>
+        </FormDisplay>
       </div>
-    </div>
+    </AppLogin>
   );
 }
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AddressDisplay = styled.form`
+export const EditAddressDisplay = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,6 +10,6 @@ export const AddressDisplay = styled.form`
     row-gap: 16px;
 `
 
-export const AddressApp = styled.div`
+export const EditAddressApp = styled.div`
     text-align: center;
 `

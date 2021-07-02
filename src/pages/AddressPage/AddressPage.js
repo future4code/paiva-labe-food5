@@ -1,22 +1,28 @@
+import { Button, TextField } from "@material-ui/core";
 import axios from "axios";
 import React from "react";
 import { useHistory } from "react-router-dom";
+import Header from "../../components/Header/Header";
 import { useForm } from "../../hooks/useForm";
+import useProtectedPage from "../../hooks/useProtectedPage";
 import { URL } from "../../parameters/url";
 import { goToHome } from "../../routes/coordinator";
+import { AddressApp, AddressDisplay } from "./styled";
 
-const initialForm = {
-  street: "",
-  number: "",
-  neighbourhood: "",
-  city: "",
-  state: "",
-  complement: "",
-};
 const AddressPage = () => {
+  const initialForm = {
+    street: "",
+    number: "",
+    neighbourhood: "",
+    city: "",
+    state: "",
+    complement: "",
+  };
+
+  useProtectedPage()
   const [form, handleValue, resetForm] = useForm(initialForm);
   const history = useHistory();
-
+  
   const address = (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem("user"));
@@ -31,25 +37,29 @@ const AddressPage = () => {
     axios
       .put(`${URL}/address`, body, {
         headers: {
-          auth: user.token,
+          auth: user,
         },
       })
       .then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("userAddress", res.data.user.hasAddress);
+        console.log(res)
         goToHome(history);
       })
       .catch((err) => {
         console.log(err.response.data.message);
       });
   };
+  
 
   return (
-    <div>
-      <h1> cadastro ou a edição de endereço</h1>
+    <AddressApp>
+      <Header name=""/>
       <div>
-        <form onSubmit={address}>
-          <label>Logradouro</label>
-          <input
+        <p>Meu endereço</p>
+        <AddressDisplay onSubmit={address}>
+          <TextField
+            label="Logradouro"
+            variant="outlined"
             name="street"
             type="text"
             onChange={handleValue}
@@ -57,8 +67,9 @@ const AddressPage = () => {
             required={true}
             placeholder="Rua/Av."
           />
-          <label>Número</label>
-          <input
+          <TextField
+            label="Número"
+            variant="outlined"
             name="number"
             type="text"
             onChange={handleValue}
@@ -66,8 +77,9 @@ const AddressPage = () => {
             required={true}
             placeholder="Numero"
           />
-          <label>Complemento</label>
-          <input
+          <TextField
+            label="Complemento"
+            variant="outlined"
             name="complement"
             type="text"
             onChange={handleValue}
@@ -75,8 +87,9 @@ const AddressPage = () => {
             required={false}
             placeholder="Apto./ Bloco"
           />
-          <label>Bairro</label>
-          <input
+          <TextField
+            label="Bairro"
+            variant="outlined"
             name="neighbourhood"
             type="text"
             onChange={handleValue}
@@ -84,8 +97,9 @@ const AddressPage = () => {
             required={true}
             placeholder="Bairro"
           />
-          <label>Cidade</label>
-          <input
+          <TextField
+            label="Cidade"
+            variant="outlined"
             name="city"
             onChange={handleValue}
             value={form.city}
@@ -93,8 +107,9 @@ const AddressPage = () => {
             type="text"
             placeholder="Cidade"
           />
-          <label>Estado</label>
-          <input
+          <TextField
+            label="Estado"
+            variant="outlined"
             name="state"
             type="text"
             onChange={handleValue}
@@ -102,10 +117,10 @@ const AddressPage = () => {
             required={true}
             placeholder="Estado"
           />
-          <button>Salvar</button>
-        </form>
+          <Button type="submit" color="primary" variant="contained" >Salvar</Button>
+        </AddressDisplay>
       </div>
-    </div>
+    </AddressApp>
   );
 };
 

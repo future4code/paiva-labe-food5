@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AddressPage from "../pages/AddressPage/AddressPage";
 import Cart from "../pages/Cart/Cart";
 import EditProfile from "../pages/EditProfile/EditProfile";
+import EditAddress from "../pages/EditAddress/EditAddress";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Profile from "../pages/Profile/Profile";
@@ -42,7 +43,7 @@ const Router = () => {
           <EditProfile />
         </Route>
         <Route exact path="/profile/edit/address">
-          <AddressPage />
+          <EditAddress />
         </Route>
         {/* <Route>
           <ErrorPage />

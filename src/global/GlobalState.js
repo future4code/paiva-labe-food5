@@ -4,12 +4,15 @@ import GlobalStateContext from "./GlobalStateContext";
 export const GlobalState = (props) => {
   const [cart, setCart] = useState([]);
   const [restaurantDetail, setRestaurantDetail] = useState({});
+  const [profileAddress, setProfileAddress] = useState([]);
   
   const data = {
     cart,
     setCart, 
     restaurantDetail, 
     setRestaurantDetail,
+    profileAddress,
+    setProfileAddress
     }
 
 

@@ -1,12 +1,20 @@
 import React from 'react'
-
+import ProfileUser from './ProfileUser'
+import ProfileAddress from './ProfileAddress'
+import OrdersHistory from './OrdersHistory'
+import Header from "../../components/Header/Header";
+import useProtectedPage from '../../hooks/useProtectedPage';
 
 const Profile = () => {
 
-    return(
-        <div>
-            <h1> Pagina meu perfil</h1>
-        </div>
+    useProtectedPage()
+    return (
+        <>
+        <Header name="Perfil"/>
+        <ProfileUser/>
+        <ProfileAddress/>
+        <OrdersHistory/>
+        </>
     )
 }
 

@@ -5,11 +5,12 @@ import useRequestData from '../../hooks/useRequestData';
 import { URL } from '../../parameters/url';
 import { ContainerRestaurant, CardImagem, TituloProduto, DescricaoProduto, ContainerTimeFrete, ContainerDados } from './styled'
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 
 const Restaurant = () => {
   const { restaurantId } = useParams()
+  useProtectedPage()
 
   const detailRestaurant = useRequestData({}, `${URL}/restaurants/${restaurantId}`)
 
