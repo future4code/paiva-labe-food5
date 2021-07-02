@@ -10,8 +10,9 @@ export default function RestaurantCard(props) {
     deliveryTime,
     id
   } = props.restaurant;
+ 
   const history = useHistory();
-
+ 
   return (
     <article onClick={() => goToRestaurant(history, id)}>
       <img src={logoUrl} alt={name}/>

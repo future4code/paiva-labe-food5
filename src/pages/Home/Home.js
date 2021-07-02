@@ -12,7 +12,7 @@ const Home = () => {
   useProtectedPage();
   const history = useHistory();
   const { restaurants } = useRequestData({}, `${URL}/restaurants`);
-
+  console.log('restaurante', restaurants)
   return (
     <main>
       <Header name="FutureEats"/>
