@@ -9,6 +9,7 @@ const pagesButtonBack = [
   "Endereço",
   "Carrinho",
   "Cadastrar",
+  "Perfil",
   ""
 ];
 

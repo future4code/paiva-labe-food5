@@ -1,25 +1,28 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const useRequestData = (initialData, url) => {
-  const [ data, setData ] = useState(initialData);
-  const user = JSON.parse(localStorage.getItem("user"));
+  const [data, setData] = useState(initialData)
+  const user = localStorage.getItem("user")
 
   useEffect(() => {
-    if (!user)
-      return;
-
-    axios.get(url, { headers: { Auth: user.token } })
-      .then((response) => {
-        setData(response.data);
-        console.log('entrou')
+    if(user){
+      axios.get(url , {
+        headers: {
+          Auth: user
+        }
       })
-      .catch(() => {
-        alert("Ocorreu um erro, tente novamente");
-      });
-  }, [ url]);
+        .then((response) => {
+          setData(response.data)
+        })
+        .catch((error) => {
+          console.log(error.response)
+          alert('Ocorreu um erro, tente novamente')
+        })
+    }
+  }, [url])
 
-  return data;
-};
+  return (data)
+}
 
-export default useRequestData;
+export default useRequestData

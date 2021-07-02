@@ -1,7 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToHome } from '../../routes/coordinator'
-import { IntroDisplay } from './styled'
+import { IntroDisplay, LogoIntro } from './styled'
+import logo1 from './../../assets/img/logo-future-eats@3x.png'
 
 function Intro() {
     const history = useHistory()
@@ -12,7 +13,7 @@ function Intro() {
 
     return(
         <IntroDisplay>
-            <h1>LOGO FUTUREATS</h1>
+            <LogoIntro src={logo1}/>
         </IntroDisplay>
     )
 }
