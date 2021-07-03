@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -10,15 +10,22 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import ProductCard from '../../components/ProductCard/ProductCard'
 import useProtectedPage from '../../hooks/useProtectedPage';
+import GlobalStateContext from '../../global/GlobalStateContext';
 
 export default function RadioButtonsGroup() {
     useProtectedPage()
     const [value, setValue] = React.useState('Dinheiro');
-
+    const { cart, setCart } = useContext(GlobalStateContext);
     const handleChange = (event) => {
         setValue(event.target.value);
     };
 
+    const listaDetalhe = cart && cart.map((opcoes) => {
+        return (
+            <ProductCard opcoes={opcoes}
+            />
+        )
+    })
 
     return (
         <>
@@ -27,7 +34,7 @@ export default function RadioButtonsGroup() {
                     <h1>CARRINHO</h1>
                 </Toolbar>
             </AppBar>
-            <ProductCard/>
+
             <FormControl component="fieldset">
                 <FormLabel component="legend">Forma de Pagamento</FormLabel>
                 <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
@@ -39,7 +46,9 @@ export default function RadioButtonsGroup() {
                 </RadioGroup>
             </FormControl>
             <Footer />
+
+            {listaDetalhe}
         </>
 
     );
-} 
+}

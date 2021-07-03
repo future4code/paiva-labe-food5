@@ -2,7 +2,7 @@ import React from 'react';
 import { ContainerCard, Card, CardImagem, TituloProduto, DescricaoProduto, ContainerPreco, TextoPreco, ContainerQuantidade, TextoQtda, Button, ContainerDados } from './styled'
 
 const ProductCard = (props) => {
-
+    
     return (
         <ContainerCard>
             <Card >
@@ -20,7 +20,7 @@ const ProductCard = (props) => {
                     <ContainerQuantidade>
                         <TextoQtda>2</TextoQtda>
                     </ContainerQuantidade>
-                    <Button>adicionar</Button>
+                    <Button onClick={() => props.addCart(props.opcoes)}>adicionar</Button>
                 </ContainerDados>
             </Card>
         </ContainerCard>
