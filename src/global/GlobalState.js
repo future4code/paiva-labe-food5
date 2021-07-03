@@ -15,7 +15,7 @@ export const GlobalState = (props) => {
     setProfileAddress
     }
 
-
+    console.log('cart global',cart)
   return (
     <GlobalStateContext.Provider value={data}>
       {props.children}

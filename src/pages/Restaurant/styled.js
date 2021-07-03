@@ -6,6 +6,7 @@ export const ContainerRestaurant = styled.div`
   justify-content:center;
   justify-items: center;
   margin: auto;
+  width: 360px;
 `
 
 export const CardImagem = styled.div`

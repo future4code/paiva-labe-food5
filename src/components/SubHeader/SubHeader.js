@@ -1,3 +1,4 @@
+import React from "react";
 import { LogoDisplay, LogoLogin } from "./styled";
 import logo1 from './../../assets/img/logo-future-eats-invert@3x.png'
 
