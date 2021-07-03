@@ -34,7 +34,7 @@ export default function RadioButtonsGroup() {
                     <h1>CARRINHO</h1>
                 </Toolbar>
             </AppBar>
-
+                {listaDetalhe}
             <FormControl component="fieldset">
                 <FormLabel component="legend">Forma de Pagamento</FormLabel>
                 <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
@@ -47,7 +47,7 @@ export default function RadioButtonsGroup() {
             </FormControl>
             <Footer />
 
-            {listaDetalhe}
+            
         </>
 
     );
