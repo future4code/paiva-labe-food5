@@ -5,6 +5,7 @@ import { URL } from "../../parameters/url";
 import axios from 'axios'
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard";
 import Search from '../../components/Search/Search'
+import Header from "../../components/Header/Header";
 
 const SearchPage = () => {
   useProtectedPage();
@@ -40,7 +41,7 @@ const SearchPage = () => {
     
     return (
     <div>
-      Pesquisar
+     <Header name={"Busca"}/>
       <Search
         value={busca}
         onChange={(search) => setBusca(search)}
