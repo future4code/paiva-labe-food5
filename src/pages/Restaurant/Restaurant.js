@@ -79,7 +79,7 @@ const Restaurant = () => {
         </ContainerRestaurant>
 
         : <p>...carregando</p>}
-
+  {console.log('detailres res', detailRestaurant.restaurant)}
       {listaDetalhe}
 
     </div>

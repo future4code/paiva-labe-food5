@@ -21,6 +21,7 @@ export default function RadioButtonsGroup() {
     };
 
     const listaDetalhe = cart && cart.map((opcoes) => {
+        console.log('props', opcoes)
         return (
             <ProductCard opcoes={opcoes}
             />
