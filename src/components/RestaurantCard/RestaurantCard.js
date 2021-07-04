@@ -10,7 +10,7 @@ export default function RestaurantCard(props) {
     deliveryTime,
     id
   } = props.restaurant;
- 
+ console.log(props)
   const history = useHistory();
  
   return (
