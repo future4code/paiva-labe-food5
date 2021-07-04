@@ -5,7 +5,7 @@ import Cart from "../pages/Cart/Cart";
 import EditProfile from "../pages/EditProfile/EditProfile";
 import EditAddress from "../pages/EditAddress/EditAddress";
 import Home from "../pages/Home/Home";
-import SearchPage from "../pages/Home/SearchPage"
+import SearchPage from "../pages/SearchPage/SearchPage"
 import Login from "../pages/Login/Login";
 import Profile from "../pages/Profile/Profile";
 import Restaurant from "../pages/Restaurant/Restaurant";
