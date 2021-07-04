@@ -12,7 +12,6 @@ const SearchPage = () => {
   const history = useHistory();
   const [data, setData] = useState([])
   const [busca, setBusca] = useState('')
-  console.log(data)
     
     const buscaRestaurantes = () => {
         axios.get(`${URL}/restaurants`, {
@@ -25,7 +24,7 @@ const SearchPage = () => {
             
           })
           .catch((err) => {
-            console.log(err.response.data);
+            alert(err.response.data);
           })
       
         }
@@ -37,7 +36,6 @@ const SearchPage = () => {
     const searchRestaurant = busca && data.restaurants && data.restaurants.filter((restaurant) => busca && restaurant.name.toLowerCase().includes(busca.toLowerCase())).map((restaurant) => {
       return<RestaurantCard restaurant={restaurant} />
     })
- console.log('searchRestaurant',searchRestaurant)
     
     return (
     <div>
