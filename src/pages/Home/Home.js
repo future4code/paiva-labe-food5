@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { URL } from "../../parameters/url";
 import useRequestData from "../../hooks/useRequestData";
 import useProtectedPage from "../../hooks/useProtectedPage";
@@ -7,12 +7,13 @@ import { useHistory } from "react-router-dom";
 import { goToSearch } from "../../routes/coordinator";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import GlobalStateContext from '../../global/GlobalStateContext';
 
 const Home = () => {
   useProtectedPage();
   const history = useHistory();
   const { restaurants } = useRequestData({}, `${URL}/restaurants`);
-  console.log('restaurante', restaurants)
+ 
   return (
     <main>
       <Header name="FutureEats"/>
