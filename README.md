@@ -2,6 +2,8 @@
 
 Projeto LabeFood - React.js
 
+Link surge: https://unwritten-harbor.surge.sh/
+
 Sobre
 Projeto baseado em aplicativo de delivery e serviços.
 
@@ -23,7 +25,5 @@ O que não funciona
 - Pop up avisando sobre pedido em andamento;
 - Finalizar pedido;
 - Histórico de pedidos;
-link surge 
-peaceful-oven.surge.sh
 
 
