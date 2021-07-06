@@ -34,7 +34,7 @@ export default function RadioButtonsGroup() {
                     <h1>CARRINHO</h1>
                 </Toolbar>
             </AppBar>
-                {listaDetalhe}
+                {(cart.length===0)?<p>Carrinho Vazio!</p> : listaDetalhe}
             <FormControl component="fieldset">
                 <FormLabel component="legend">Forma de Pagamento</FormLabel>
                 <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>

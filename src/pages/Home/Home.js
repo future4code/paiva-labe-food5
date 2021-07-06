@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { URL } from "../../parameters/url";
 import useRequestData from "../../hooks/useRequestData";
 import useProtectedPage from "../../hooks/useProtectedPage";
@@ -7,7 +7,9 @@ import { useHistory } from "react-router-dom";
 import { goToSearch } from "../../routes/coordinator";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import GlobalStateContext from '../../global/GlobalStateContext';
+import { Input, ContainerInput, SearchI } from './styled'
+
+
 
 const Home = () => {
   useProtectedPage();
@@ -17,13 +19,14 @@ const Home = () => {
   return (
     <main>
       <Header name="FutureEats"/>
-      <section>
-        <input
-          placeholder="Restaurante"
+      <ContainerInput>
+        <SearchI/><Input
+          type="search"
+          placeholder=''
           onClick={() => goToSearch(history)}
           readOnly
         />
-      </section>
+      </ContainerInput>
       <section>
         {restaurants?.length && restaurants.map((restaurant) => (
           <RestaurantCard

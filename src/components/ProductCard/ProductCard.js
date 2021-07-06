@@ -2,7 +2,6 @@ import React from 'react';
 import { ContainerCard, Card, CardImagem, TituloProduto, DescricaoProduto, ContainerPreco, TextoPreco, ContainerQuantidade, TextoQtda, Button, ContainerDados } from './styled'
 
 const ProductCard = (props) => {
-    
     return (
         <ContainerCard>
             <Card >
@@ -17,10 +16,12 @@ const ProductCard = (props) => {
                     <ContainerPreco>
                         <TextoPreco>R${props.opcoes.price}</TextoPreco>
                     </ContainerPreco>
-                    <ContainerQuantidade>
-                        <TextoQtda>2</TextoQtda>
-                    </ContainerQuantidade>
-                    <Button onClick={() => props.addCart(props.opcoes)}>adicionar</Button>
+                    {(props.opcoes.quantity) ? (<ContainerQuantidade>
+                        <TextoQtda>{props.opcoes.quantity}</TextoQtda>
+                    </ContainerQuantidade>) : (
+                        <TextoQtda></TextoQtda>
+                    )}
+                    {(props.opcoes.quantity) ? (<Button onClick={() => props.addCart(props.opcoes)}>remover</Button>) : (<Button onClick={() => props.addCart(props.opcoes)}>adicionar</Button>)}
                 </ContainerDados>
             </Card>
         </ContainerCard>

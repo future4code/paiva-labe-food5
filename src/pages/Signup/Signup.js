@@ -56,10 +56,10 @@ export function Signup() {
           history.push('/signup/address')
         })
         .catch((err) => {
-          console.log(err.response.data.message)
+          alert(err.response.data.message)
         })
     } else {
-      console.log("Senhas diferente da confirmação")
+      alert("Senhas diferente da confirmação")
       setDoubleCheck("")
     }
   }

@@ -64,7 +64,7 @@ const Restaurant = () => {
       <Header name={"Restaurante"}/>
       {detailRestaurant.restaurant ?
         <ContainerRestaurant>
-          <CardImagem style={{ backgroundImage: 'url(' + detailRestaurant.restaurant.logoUrl + ')' }} alt={detailRestaurant.restaurant.name} />
+          <CardImagem style={{ backgroundImage: 'url(' + detailRestaurant.restaurant.logoUrl + ')' }} />
           <ContainerDados>
             <TituloProduto>{detailRestaurant.restaurant.name}</TituloProduto>
             <DescricaoProduto>{detailRestaurant.restaurant.category}</DescricaoProduto>
@@ -79,7 +79,6 @@ const Restaurant = () => {
         </ContainerRestaurant>
 
         : <p>...carregando</p>}
-
       {listaDetalhe}
 
     </div>

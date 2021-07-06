@@ -26,12 +26,11 @@ const EditProfile = () => {
       });
 
       if (res.status) {
-        console.log(res.data)
         setName(res.data.user.name);
         setEmail(res.data.user.email);
         setCpf(res.data.user.cpf);
       } else {
-        console.log(res.message);
+        alert(res.message);
       }
     })();
   }, []);
@@ -72,7 +71,7 @@ const EditProfile = () => {
         goToProfile(history);
       })
       .catch((err) => {
-        console.log(err.response.data.message);
+        alert(err.response.data.message);
       });
   };
   

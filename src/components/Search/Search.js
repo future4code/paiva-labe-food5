@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useDebounce from '../../hooks/useDebounce';
+import { Input, ContainerInput, SearchI } from './styled'
 
 const Search = ({ value, onChange }) => {
   const [displayValue, setDisplayValue] = useState(value);
@@ -11,11 +12,14 @@ const Search = ({ value, onChange }) => {
   }
 
   return (
-    <input
-      type="search"
-      value={displayValue}
-      onChange={restaurantFiltrado}
-    />
+    <ContainerInput>
+      <SearchI/><Input
+        type="text"
+        value={displayValue}
+        onChange={restaurantFiltrado}
+        autofocus
+      />
+    </ContainerInput>
   );
 };
 

@@ -1,28 +1,12 @@
 import styled from 'styled-components';
-import SearchIcon from '@material-ui/icons/Search';
 
-export const ContainerInput = styled.div`
-  display:flex;
-  justify-content:center;
-  justify-items: center;
-  margin: 10px auto;
-  width: 320px;
+export const DivCard = styled.div`
+  width: 328px;
+  height: 170px;
+  padding: 0 0 16px;
+  border-radius: 8px;
   border: solid 1px #b8b8b8;
-`
-
-export const Input = styled.input`
-  width: 263px;
-  padding: 16px 0 16px 0;
-  border-radius: 2px;
-  border: none;
-  margin: auto;
-`
-
-export const SearchI = styled(SearchIcon)`
-  margin: auto;
-  width: 17.5px;
-  height: 17.5px;
-  color: #b8b8b8;
+  margin: 10px auto;
 `
 
 export const CardImagem = styled.div`
@@ -61,4 +45,5 @@ export const TituloProduto = styled.div`
   letter-spacing: -0.39px;
   color: #5cb646;
 `
+
 
