@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { goToRestaurant } from "../../routes/coordinator";
+import { DivCard, CardImagem, TituloProduto, ContainerTimeFrete, ContainerDados } from './styled'
 
 export default function RestaurantCard(props) {
   const {
@@ -10,17 +11,20 @@ export default function RestaurantCard(props) {
     deliveryTime,
     id
   } = props.restaurant;
- console.log(props)
   const history = useHistory();
- 
+
   return (
     <article onClick={() => goToRestaurant(history, id)}>
-      <img src={logoUrl} alt={name}/>
-      <h3>{name}</h3>
-      <div>
-        <p>{`${deliveryTime} min`}</p>
-        <p>{`Frete R$ ${shipping}`}</p>
-      </div>
+      <DivCard>
+        <CardImagem style={{ backgroundImage: 'url(' + logoUrl + ')' }} />
+        <ContainerDados>
+          <TituloProduto>{name}</TituloProduto>
+          <ContainerTimeFrete>
+            <p>{`${deliveryTime} min`}</p>
+            <p>{`Frete R$ ${shipping}`}</p>
+          </ContainerTimeFrete>
+        </ContainerDados>
+      </DivCard>
     </article>
   );
 }

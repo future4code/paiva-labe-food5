@@ -36,7 +36,7 @@ const EditAddress = () => {
         setNeighbourhood(res.data.address.neighbourhood);
         setState(res.data.address.state);
       } else {
-        console.log(res.message);
+        alert(res.message);
       }
     })();
   }, []);
@@ -89,7 +89,7 @@ const EditAddress = () => {
         goToProfile(history);
       })
       .catch((err) => {
-        console.log(err.response.data.message);
+        alert(err.response.data.message);
       });
   };
   
