@@ -1,4 +1,4 @@
-futureEatsA
+
 
 Projeto LabeFood - React.js
 
@@ -23,3 +23,7 @@ O que não funciona
 - Pop up avisando sobre pedido em andamento;
 - Finalizar pedido;
 - Histórico de pedidos;
+link surge 
+peaceful-oven.surge.sh
+
+
